@@ -146,20 +146,40 @@ export default async function EditConcertPage({
     }
 
     return (
-        <div className="container mx-auto p-8 max-w-4xl">
-            <div className="flex items-center justify-between mb-8">
-                <h1 className="text-4xl font-bold text-gray-800">Edit Concert</h1>
-                <Link href="/" className="bg-gray-600 text-white py-3 px-6 rounded-lg hover:bg-gray-700 font-semibold text-lg transition-colors duration-200 shadow-md">
-                    ← Back to Dashboard
-                </Link>
-            </div>
+        <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
+            <div className="container mx-auto px-4 py-4 sm:py-8">
+                {/* Header */}
+                <div className="bg-gradient-to-r from-yellow-600 to-orange-600 rounded-2xl shadow-xl p-6 sm:p-8 mb-6 sm:mb-8 text-white">
+                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <div className="flex items-center">
+                            <div className="bg-white bg-opacity-20 p-2 sm:p-3 rounded-full mr-3 sm:mr-4">
+                                <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h1 className="text-2xl sm:text-4xl font-bold">Edit Concert</h1>
+                                <p className="text-yellow-100 mt-1 text-sm sm:text-base">Update concert information and ticket types</p>
+                            </div>
+                        </div>
+                        <Link href="/" className="w-full sm:w-auto">
+                            <button className="bg-white text-yellow-600 hover:bg-yellow-50 font-bold py-3 px-4 sm:px-6 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 w-full sm:w-auto flex items-center justify-center">
+                                <svg className="w-4 h-4 sm:w-5 sm:h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                                </svg>
+                                <span className="sm:inline">Back to Dashboard</span>
+                            </button>
+                        </Link>
+                    </div>
+                </div>
 
-            <ConcertEditForm
-                concert={concert as any}
-                ticketTypes={ticketTypes || []}
-                venues={venues as Venue[] || []}
-                onFormSubmit={updateConcertAction}
-            />
+                <ConcertEditForm
+                    concert={concert as any}
+                    ticketTypes={ticketTypes || []}
+                    venues={venues as Venue[] || []}
+                    onFormSubmit={updateConcertAction}
+                />
+            </div>
         </div>
     );
 } 

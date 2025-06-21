@@ -11,10 +11,15 @@
   "dependencies": {
     "@supabase/ssr": "^0.6.1",
     "@supabase/supabase-js": "^2.50.0",
+    "@types/qrcode": "^1.5.5",
     "chart.js": "^4.5.0",
+    "html2canvas": "^1.4.1",
+    "html5-qrcode": "^2.3.8",
     "next": "15.3.4",
+    "qrcode": "^1.5.4",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-responsive": "^10.0.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

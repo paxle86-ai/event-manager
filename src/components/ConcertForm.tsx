@@ -17,13 +17,13 @@ type ConcertFormData = {
 
 // Default ticket types
 const DEFAULT_TICKET_TYPES = [
-    { name: 'Premium', price: '500', total_quantity: '100' },
-    { name: 'VIP', price: '350', total_quantity: '200' },
-    { name: 'Gold', price: '280', total_quantity: '300' },
-    { name: 'Silver', price: '240', total_quantity: '400' },
-    { name: 'Standard A', price: '200', total_quantity: '500' },
-    { name: 'Standard B', price: '160', total_quantity: '600' },
-    { name: 'Standard C', price: '120', total_quantity: '700' }
+    { name: 'Premium', price: '500', total_quantity: '10' },
+    { name: 'VIP', price: '350', total_quantity: '10' },
+    { name: 'Gold', price: '280', total_quantity: '10' },
+    { name: 'Silver', price: '240', total_quantity: '10' },
+    { name: 'Standard A', price: '200', total_quantity: '10' },
+    { name: 'Standard B', price: '160', total_quantity: '10' },
+    { name: 'Standard C', price: '120', total_quantity: '10' }
 ];
 
 // Component nhận vào một action và danh sách địa điểm
