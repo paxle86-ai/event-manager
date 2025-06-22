@@ -46,7 +46,8 @@ export default function QRCodeScanner({ onScan, onError, className = '' }: QRCod
                         onError &&
                         !errorMessage.includes("No QR code found") &&
                         !errorMessage.includes("No barcode or QR code detected") &&
-                        !errorMessage.includes("NotFoundException")
+                        !errorMessage.includes("NotFoundException") &&
+                        !errorMessage.includes("Z: No MultiFormat Readers")
                     ) {
                         onError(errorMessage);
                     }
