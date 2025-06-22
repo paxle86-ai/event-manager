@@ -56,3 +56,8 @@ body {
 .animate-slide-out {
   animation: slideOut 0.3s ease-in;
 }
+
+/* Custom styles for QR code scanner */
+#qr-shaded-region {
+  border-width: 0 !important;
+}
