@@ -20,8 +20,18 @@ export default function QRCodeScanner({ onScan, onError, className = '' }: QRCod
                 "qr-reader",
                 {
                     fps: 10,
-                    qrbox: { width: 250, height: 250 },
+                    qrbox: (viewfinderWidth, viewfinderHeight) => {
+                        const minEdge = Math.min(viewfinderWidth, viewfinderHeight);
+                        const qrboxSize = Math.floor(minEdge * 0.8);
+                        return {
+                            width: qrboxSize,
+                            height: qrboxSize,
+                        };
+                    },
                     aspectRatio: 1.0,
+                    videoConstraints: {
+                        facingMode: "environment"
+                    }
                 },
                 false
             );
@@ -31,8 +41,10 @@ export default function QRCodeScanner({ onScan, onError, className = '' }: QRCod
                     onScan(decodedText);
                 },
                 (errorMessage) => {
-                    // Ignore errors during scanning
-                    console.log('QR scan error:', errorMessage);
+                    // Ignore common, non-fatal errors
+                    if (onError && !errorMessage.includes("No QR code found")) {
+                        onError(errorMessage);
+                    }
                 }
             );
 
@@ -46,7 +58,7 @@ export default function QRCodeScanner({ onScan, onError, className = '' }: QRCod
                 setIsScanning(false);
             }
         };
-    }, [scanner, onScan]);
+    }, [scanner, onScan, onError]);
 
     return (
         <div className={`${className}`}>
