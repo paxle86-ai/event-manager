@@ -41,8 +41,13 @@ export default function QRCodeScanner({ onScan, onError, className = '' }: QRCod
                     onScan(decodedText);
                 },
                 (errorMessage) => {
-                    // Ignore common, non-fatal errors
-                    if (onError && !errorMessage.includes("No QR code found")) {
+                    // Only call onError for real errors, not for 'no code found'
+                    if (
+                        onError &&
+                        !errorMessage.includes("No QR code found") &&
+                        !errorMessage.includes("No barcode or QR code detected") &&
+                        !errorMessage.includes("NotFoundException")
+                    ) {
                         onError(errorMessage);
                     }
                 }
